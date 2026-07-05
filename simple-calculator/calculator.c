@@ -25,6 +25,18 @@ int sub(int a, int b)
 }
 
 /**
+ * mul - Multiplies two integers.
+ * @a: First integer.
+ * @b: Second integer.
+ *
+ * Return: The result of a * b.
+ */
+int mul(int a, int b)
+{
+	return (a * b);
+}
+
+/**
  * main - Entry point for the calculator.
  *
  * Return: Always 0.
@@ -56,25 +68,22 @@ int main(void)
 			printf("Bye!\n");
 			break;
 		}
-		else if (choice == 1)
+		else if (choice >= 1 && choice <= 3)
 		{
 			printf("A: ");
 			scanf("%d", &a);
 			printf("B: ");
 			scanf("%d", &b);
-			printf("Result: %d\n", add(a, b));
+			if (choice == 1)
+				printf("Result: %d\n", add(a, b));
+			else if (choice == 2)
+				printf("Result: %d\n", sub(a, b));
+			else
+				printf("Result: %d\n", mul(a, b));
 		}
-		else if (choice == 2)
+		else if (choice == 4)
 		{
-			printf("A: ");
-			scanf("%d", &a);
-			printf("B: ");
-			scanf("%d", &b);
-			printf("Result: %d\n", sub(a, b));
-		}
-		else if (choice == 3 || choice == 4)
-		{
-			/* Placeholder */
+			/* Placeholder for division */
 		}
 		else
 		{
