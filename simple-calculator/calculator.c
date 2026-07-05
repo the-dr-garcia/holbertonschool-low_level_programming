@@ -9,20 +9,23 @@ int main(void)
 {
 	int choice;
 
-	printf("Simple Calculator\n");
-	printf("1) Add\n");
-	printf("2) Subtract\n");
-	printf("3) Multiply\n");
-	printf("4) Divide\n");
-	printf("0) Quit\n");
-
 	while (1)
 	{
+		printf("Simple Calculator\n");
+		printf("1) Add\n");
+		printf("2) Subtract\n");
+		printf("3) Multiply\n");
+		printf("4) Divide\n");
+		printf("0) Quit\n");
 		printf("Choice: ");
+
 		if (scanf("%d", &choice) != 1)
 		{
-			/* Handle non-integer input if necessary */
-			break;
+			/* Clear buffer if non-integer input is provided */
+			while (getchar() != '\n')
+				;
+			printf("Invalid choice\n");
+			continue;
 		}
 
 		if (choice == 0)
@@ -32,11 +35,11 @@ int main(void)
 		}
 		else if (choice >= 1 && choice <= 4)
 		{
-			printf("Operation %d selected (not yet implemented).\n", choice);
+			/* Placeholder for future operations */
 		}
 		else
 		{
-			printf("Invalid choice.\n");
+			printf("Invalid choice\n");
 		}
 	}
 
