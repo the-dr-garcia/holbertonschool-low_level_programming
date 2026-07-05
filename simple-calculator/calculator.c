@@ -13,6 +13,18 @@ int add(int a, int b)
 }
 
 /**
+ * sub - Subtracts two integers.
+ * @a: First integer.
+ * @b: Second integer.
+ *
+ * Return: The result of a - b.
+ */
+int sub(int a, int b)
+{
+	return (a - b);
+}
+
+/**
  * main - Entry point for the calculator.
  *
  * Return: Always 0.
@@ -33,7 +45,8 @@ int main(void)
 
 		if (scanf("%d", &choice) != 1)
 		{
-			while (getchar() != '\n');
+			while (getchar() != '\n')
+				;
 			printf("Invalid choice\n");
 			continue;
 		}
@@ -51,9 +64,17 @@ int main(void)
 			scanf("%d", &b);
 			printf("Result: %d\n", add(a, b));
 		}
-		else if (choice >= 2 && choice <= 4)
+		else if (choice == 2)
 		{
-			/* Placeholder for other operations */
+			printf("A: ");
+			scanf("%d", &a);
+			printf("B: ");
+			scanf("%d", &b);
+			printf("Result: %d\n", sub(a, b));
+		}
+		else if (choice == 3 || choice == 4)
+		{
+			/* Placeholder */
 		}
 		else
 		{
