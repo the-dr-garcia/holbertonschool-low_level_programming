@@ -1,13 +1,25 @@
 #include <stdio.h>
 
 /**
+ * add - Adds two integers.
+ * @a: First integer.
+ * @b: Second integer.
+ *
+ * Return: The sum of a and b.
+ */
+int add(int a, int b)
+{
+	return (a + b);
+}
+
+/**
  * main - Entry point for the calculator.
  *
  * Return: Always 0.
  */
 int main(void)
 {
-	int choice;
+	int choice, a, b;
 
 	while (1)
 	{
@@ -21,9 +33,7 @@ int main(void)
 
 		if (scanf("%d", &choice) != 1)
 		{
-			/* Clear buffer if non-integer input is provided */
-			while (getchar() != '\n')
-				;
+			while (getchar() != '\n');
 			printf("Invalid choice\n");
 			continue;
 		}
@@ -33,15 +43,22 @@ int main(void)
 			printf("Bye!\n");
 			break;
 		}
-		else if (choice >= 1 && choice <= 4)
+		else if (choice == 1)
 		{
-			/* Placeholder for future operations */
+			printf("A: ");
+			scanf("%d", &a);
+			printf("B: ");
+			scanf("%d", &b);
+			printf("Result: %d\n", add(a, b));
+		}
+		else if (choice >= 2 && choice <= 4)
+		{
+			/* Placeholder for other operations */
 		}
 		else
 		{
 			printf("Invalid choice\n");
 		}
 	}
-
 	return (0);
 }
