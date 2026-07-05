@@ -37,6 +37,18 @@ int mul(int a, int b)
 }
 
 /**
+ * div_op - Divides two integers.
+ * @a: First integer.
+ * @b: Second integer.
+ *
+ * Return: The result of a / b as a float.
+ */
+float div_op(int a, int b)
+{
+	return ((float)a / (float)b);
+}
+
+/**
  * main - Entry point for the calculator.
  *
  * Return: Always 0.
@@ -68,22 +80,26 @@ int main(void)
 			printf("Bye!\n");
 			break;
 		}
-		else if (choice >= 1 && choice <= 3)
+		else if (choice >= 1 && choice <= 4)
 		{
 			printf("A: ");
 			scanf("%d", &a);
 			printf("B: ");
 			scanf("%d", &b);
+
 			if (choice == 1)
 				printf("Result: %d\n", add(a, b));
 			else if (choice == 2)
 				printf("Result: %d\n", sub(a, b));
-			else
+			else if (choice == 3)
 				printf("Result: %d\n", mul(a, b));
-		}
-		else if (choice == 4)
-		{
-			/* Placeholder for division */
+			else
+			{
+				if (b == 0)
+					printf("Error: division by zero\n");
+				else
+					printf("Result: %.1f\n", div_op(a, b));
+			}
 		}
 		else
 		{
