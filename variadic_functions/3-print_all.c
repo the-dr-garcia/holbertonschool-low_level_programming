@@ -41,6 +41,17 @@ void p_str(va_list ap)
 }
 
 /**
+ * struct printer - structure for printing types
+ * @c: the character representing the type
+ * @f: the function to handle the printing
+ */
+typedef struct printer
+{
+	char c;
+	void (*f)(va_list);
+} printer_t;
+
+/**
  * print_all - prints anything
  * @format: list of types
  */
@@ -49,17 +60,7 @@ void print_all(const char * const format, ...)
 	va_list ap;
 	int i = 0, j;
 	char *sep = "";
-	
-	/**
-	 * struct printer - structure for printing types
-	 * @c: the character representing the type
-	 * @f: the function to handle the printing
-	 */
-	struct printer
-	{
-		char c;
-		void (*f)(va_list);
-	} funcs[] = {
+	printer_t funcs[] = {
 		{'c', p_char}, {'i', p_int}, {'f', p_float}, {'s', p_str}
 	};
 
