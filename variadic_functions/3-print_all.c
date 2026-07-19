@@ -49,6 +49,11 @@ void print_all(const char * const format, ...)
 	va_list ap;
 	int i = 0, j;
 	char *sep = "";
+	/**
+	 * struct printer - structure for printing types
+	 * @c: the character representing the type
+	 * @f: the function to handle the printing
+	 */
 	struct printer
 	{
 		char c;
