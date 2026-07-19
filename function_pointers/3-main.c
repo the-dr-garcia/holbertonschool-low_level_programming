@@ -2,6 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * main - entry point, performs simple operations
+ * @argc: argument count
+ * @argv: argument vector
+ *
+ * Return: 0 on success, or exit with status code
+ */
+int main(int argc, char *argv[])
+{
+    /* ... rest of your code ... */
+}
 int main(int argc, char *argv[])
 {
 	int (*op_func)(int, int);
