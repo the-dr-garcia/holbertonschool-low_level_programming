@@ -41,17 +41,6 @@ void p_str(va_list ap)
 }
 
 /**
- * struct printer - structure for printing types
- * @c: the character representing the type
- * @f: the function to handle the printing
- */
-typedef struct printer
-{
-	char c;
-	void (*f)(va_list);
-} printer_t;
-
-/**
  * print_all - prints anything
  * @format: list of types
  */
