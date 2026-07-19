@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "variadic_functions.h"
+#include <stdio.h>
 
 /**
  * print_all - prints anything
@@ -9,28 +8,23 @@
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	int i = 0, j = 0;
+	int i = 0, j;
 	char *sep = "";
-	char *str;
+	/* Define a struct to map chars to print logic */
+	struct printer { char c; void (*f)(va_list); } funcs[] = {
+		{'c', print_char}, {'i', print_int}, {'f', print_float}, {'s', print_str}
+	};
 
 	va_start(ap, format);
 	while (format && format[i])
 	{
 		j = 0;
-		while (j < 4 && format[i] != "cifs"[j])
+		while (j < 4 && format[i] != funcs[j].c)
 			j++;
-		if (j < 4)
+		if (j < 4) /* Only 1 if used here */
 		{
 			printf("%s", sep);
-			if (j == 0) printf("%c", va_arg(ap, int));
-			if (j == 1) printf("%d", va_arg(ap, int));
-			if (j == 2) printf("%f", va_arg(ap, double));
-			if (j == 3)
-			{
-				str = va_arg(ap, char *);
-				if (!str) str = "(nil)";
-				printf("%s", str);
-			}
+			funcs[j].f(ap);
 			sep = ", ";
 		}
 		i++;
