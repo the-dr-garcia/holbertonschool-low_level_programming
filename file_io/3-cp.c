@@ -17,7 +17,8 @@ void close_file(int fd)
 }
 
 /**
- * copy_file_content - Copies content from source to destination file descriptors.
+ * copy_file_content - Copies content from source
+ * to destination file descriptors.
  * @fd_from: The source file descriptor.
  * @fd_to: The destination file descriptor.
  * @argv: Argument vector for error messages.
